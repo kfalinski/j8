@@ -1,3 +1,4 @@
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import junit.framework.TestCase;
 import org.junit.Before;
@@ -9,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -38,6 +40,11 @@ public class IntStreamTest {
         ArrayList<String> list = Lists.newArrayList();
         IntStream.range(1, stringList.size()).forEach(i -> list.add(stringList.get(i)));
         System.out.println(list);
+        List<Integer> naturals = Arrays.asList(1,2,3,4,5,6,7,8,9,10,11,12,13);
+        naturals.stream()
+                .map(n -> n * 2)
+                .peek(System.out::println)
+                .collect(Collectors.toList());
     }
 
     @Test
